@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JNTUA Academic Results Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f4f8fc;
+color:#1d3557;
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(90deg,#003566,#00509d);
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+padding:10px 16px;
+background:rgba(255,255,255,.12);
+border-radius:25px;
+font-size:14px;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+background:white;
+color:#003566;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:30px 15px;   /* reduced space */
+background:linear-gradient(to right,#eaf4ff,#ffffff);
+}
+
+.hero h1{
+font-size:28px;
+margin-bottom:8px;
+line-height:1.3;
+}
+
+.hero p{
+font-size:14px;
+color:#555;
+margin-bottom:15px;
+}
+
+.search{
+width:100%;
+max-width:340px;
+padding:12px 18px;
+font-size:14px;
+border:none;
+border-radius:30px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.search{
+width:450px;
+max-width:95%;
+padding:15px 22px;
+border:none;
+border-radius:40px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+font-size:16px;
+}
+
+/* STATS */
+
+.stats{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+padding:40px 20px;
+}
+
+.stat-box{
+background:white;
+padding:25px 45px;
+border-radius:18px;
+box-shadow:0 5px 18px rgba(0,0,0,.07);
+text-align:center;
+}
+
+.stat-box h2{
+color:#00509d;
+}
+
+/* TITLE */
+
+.section-title{
+text-align:center;
+margin-top:20px;
+font-size:34px;
+font-weight:700;
+}
+
+/* RESULTS */
+
+.container{
+padding:50px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:22px;
+padding:30px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+transition:.3s;
+border-top:5px solid #00509d;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+margin-bottom:20px;
+color:#003566;
+}
+
+.result-link{
+display:block;
+text-decoration:none;
+background:#edf5ff;
+color:#003566;
+padding:14px 18px;
+margin:12px 0;
+border-radius:12px;
+font-weight:500;
+transition:.3s;
+}
+
+.result-link:hover{
+background:#00509d;
+color:white;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:50px;
+background:#003566;
+color:white;
+text-align:center;
+padding:22px;
+font-size:18px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+padding:14px 15px;
+flex-direction:column;
+gap:15px;
+}
+
+.logo{
+font-size:22px;
+}
+
+nav{
+justify-content:center;
+}
+
+nav a{
+padding:8px 12px;
+font-size:13px;
+}
+
+.hero{
+position:sticky;
+top:60px;
+z-index:999;
+background:#f4f8fc;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.search{
+width:100%;
+font-size:15px;
+}
+
+.stats{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+padding:20px 15px;
+overflow-x:auto;
+flex-wrap:nowrap; /* keeps one line */
+}
+
+.stat-box{
+flex:1;
+min-width:110px;
+background:white;
+padding:16px 10px;
+border-radius:14px;
+box-shadow:0 4px 10px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.stat-box h2{
+font-size:22px;
+color:#00509d;
+margin-bottom:5px;
+}
+
+.stat-box p{
+font-size:13px;
+font-weight:500;
+}
+
+.section-title{
+font-size:26px;
+}
+
+.container{
+padding:20px;
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.card{
+padding:22px;
+}
+
+.result-link{
+font-size:14px;
+padding:13px;
+}
+
+.footer{
+font-size:15px;
+}
+
+}
+#topBtn{
+position:fixed;
+bottom:20px;
+right:18px;
+border:none;
+width:48px;
+height:48px;
+border-radius:50%;
+background:#00509d;
+color:white;
+font-size:22px;
+box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
+.result-link{
+padding:16px 18px;
+font-size:15px;
+font-weight:600;
+}
+</style>
+</head>
+<button id="topBtn" onclick="topFunction()">↑</button>
+<body>
+
+
+<header>
+
+<div class="logo">
+JNTUA Results Portal
+</div>
+
+<select onchange="location=this.value" class="jump">
+<option>Jump to Semester</option>
+<option value="#11">1-1</option>
+<option value="#12">1-2</option>
+<option value="#21">2-1</option>
+<option value="#22">2-2</option>
+<option value="#31">3-1</option>
+<option value="#32">3-2</option>
+<option value="#41">4-1</option>
+<option value="#42">4-2</option>
+</select>
+</header>
+
+
+
+<section class="hero">
+
+<h1>Academic Results Dashboard</h1>
+
+<p>
+Access all Regular and Supplementary Results in One Place
+</p>
+
+<input
+class="search"
+type="text"
+id="search"
+placeholder="Search semester e.g. 3-1"
+/>
+
+</section>
+
+
+
+<section class="stats">
+
+<div class="stat-box">
+<h2>8</h2>
+<p>Semesters</p>
+</div>
+
+<div class="stat-box">
+<h2>30+</h2>
+<p>Result Links</p>
+</div>
+
+<div class="stat-box">
+<h2>2023-2026</h2>
+<p>Coverage</p>
+</div>
+
+</section>
+
+<h2 class="section-title">
+Available Results
+</h2>
+
+<div class="container"
+id="resultsContainer">
+</div>
+
+
+
+<div class="footer">
+© Created by
+<span style="color:red;font-weight:bold;">
+SATHYADEV
+</span>
+</div>
+
+
+
+<script>
+const results = [
+
+{
+id:"11",
+semester:"1-1 Results",
+links:[
+["Regular February 2023",
+"https://jntuaresults.ac.in/view-results?resultSetId=9f23ef00-2429-468c-8dd9-c8af9471897d"],
+
+["Supply July/August 2023",
+"https://jntuaresults.ac.in/view-results?resultSetId=0fabe49b-cb1e-44b4-8bf4-3263dafe8383"],
+
+["Supply January 2024",
+"https://jntuaresults.ac.in/view-results?resultSetId=77285e68-d472-4e35-98e1-fda57fac193a"],
+
+["Supply Dec/Jan 2024-25",
+"https://jntuaresults.ac.in/view-results?resultSetId=cda421bb-ba17-4da0-bdc2-62ee2dcabc21"],
+
+["Supply June 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=ebe4bebe-67a9-443b-bf53-4cda7a925281"],
+
+["Supply Dec/Jan 2025-26",
+"https://jntuaresults.ac.in/view-results?resultSetId=5fa39b0e-d729-41df-98d3-46f05586ad0a"]
+]
+},
+
+{
+id:"12",
+semester:"1-2 Results",
+links:[
+["Regular July/August 2023",
+"https://jntuaresults.ac.in/view-results?resultSetId=fb980dc0-5fd4-403c-8d7f-41ad1c5f8b4c"],
+
+["Supply January 2024",
+"https://jntuaresults.ac.in/view-results?resultSetId=eb1667e5-2081-4bc1-bc8b-8dc859ee2022"],
+
+["Supply June/July 2024",
+"https://jntuaresults.ac.in/view-results?resultSetId=a9903b41-0b70-4ce1-bfe3-c49046ddec03"],
+
+["Supply Dec/Jan 2024-25",
+"https://jntuaresults.ac.in/view-results?resultSetId=7cbf9156-04a7-45db-8e9f-2c9095a62daa"],
+
+["Supply June 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=45ff969d-4b6a-4d34-96a2-841e70228eac"],
+
+["Supply Dec/Jan 2025-26",
+"https://jntuaresults.ac.in/view-results?resultSetId=91373d85-6a96-4a1b-98b9-41b08b7250b0"]
+]
+},
+
+{
+id:"21",
+semester:"2-1 Results",
+links:[
+["Regular December 2023",
+"https://jntuaresults.ac.in/view-results?resultSetId=0197febb-d466-42f0-8dfc-2a05b1c534b8"],
+
+["Supply Apr/May 2024",
+"https://jntuaresults.ac.in/view-results?resultSetId=aec7e323-2180-4fae-8370-dab1dc0d1f59"],
+
+["Supply November 2024",
+"https://jntuaresults.ac.in/view-results?resultSetId=e1a80c6d-98d2-441c-b9b6-12b307de80e3"],
+
+["Supply Apr/May 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=401d50b6-b968-497e-972b-9567bc6d3b25"],
+
+["Supply November 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=7f88965b-dd8f-43a4-a320-10bdc72c899c"]
+]
+},
+
+{
+id:"22",
+semester:"2-2 Results",
+links:[
+["Regular Apr/May 2024",
+"https://jntuaresults.ac.in/view-results?resultSetId=3f12a84c-aedf-4a80-a966-9232945f9dfe"],
+
+["Supply November 2024",
+"https://jntuaresults.ac.in/view-results?resultSetId=5f9146bc-56e6-4f69-931f-2e042fb8af88"],
+
+["Supply April 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=4db98ae9-cc9d-443e-9b2b-04874a2e6c4e"],
+
+["Supply November 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=43f061fa-2b05-4587-ba1d-04235d69c11c"]
+]
+},
+
+{
+id:"31",
+semester:"3-1 Results",
+links:[
+["Regular Nov/Dec 2024",
+"https://jntuaresults.ac.in/view-results?resultSetId=2775fc27-034f-4c5d-b8d0-e4f9861d0154"],
+
+["Supply May 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=4c99cf4e-9d33-45cb-8af7-72a74ea34420"],
+
+["Supply June 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=ba7b86c7-b354-46c0-bb64-f6657b79704f"],
+
+["Supply November 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=7088df39-3e0f-4b00-b46b-160283ca9c4e"]
+]
+},
+
+{
+id:"32",
+semester:"3-2 Results",
+links:[
+["Regular Apr/May 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=e5e541f4-c6cd-4fbb-8dca-48b9a2b38b22"],
+
+["Supply November 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=725e01c4-e297-4146-aa7b-a05bf0aa282d"]
+]
+},
+
+{
+id:"41",
+semester:"4-1 Results",
+links:[
+["Regular Oct/Nov 2025",
+"https://jntuaresults.ac.in/view-results?resultSetId=72ceadb6-1291-41a1-84d0-563e20b81fec"]
+]
+},
+
+{
+id:"42",
+semester:"4-2 Results",
+links:[
+["Regular April 2026",
+"https://jntuaresults.ac.in/view-results?resultSetId=c75a5e21-0ab7-406d-9a94-a96086bbbd75"]
+]
+}
+
+];
+
+
+function showResults(data){
+
+let box=
+document.getElementById("resultsContainer");
+
+box.innerHTML="";
+
+data.forEach(item=>{
+
+let card=document.createElement("div");
+
+card.className="card";
+card.id=item.id;
+
+let html=
+`<h2>${item.semester}</h2>`;
+
+item.links.forEach(link=>{
+
+html += `
+<a class="result-link"
+href="${link[1]}"
+target="_blank">
+${link[0]}
+</a>`;
+
+});
+
+card.innerHTML=html;
+
+box.appendChild(card);
+
+})
+
+}
+
+showResults(results);
+
+
+
+document.getElementById("search")
+.addEventListener("keyup",function(){
+
+let keyword=
+this.value.toLowerCase();
+
+let filtered=
+results.filter(item=>
+item.semester.toLowerCase()
+.includes(keyword)
+);
+
+showResults(filtered);
+
+});
+
+function topFunction(){
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+}
+</script>
+
+</body>
+</html>
